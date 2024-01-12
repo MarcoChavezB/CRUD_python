@@ -1,4 +1,4 @@
-class Sala:
+class Sala():
     def __init__(self, numero, num_asientos, hora_limpieza, max_personas, funcion):
         self.numSala = numero
         self.num_asientos = num_asientos
@@ -10,9 +10,7 @@ class Sala:
         print('')
         return f'Nombre de sala: {self.numSala}, numero de asientos: {self.num_asientos}, Funcion: {self.funcion}, hora de limpieza: {self.hora_limpieza}, maximo de personas: {self.max_personas}'
 
-
-
-
+    
 
 
 
