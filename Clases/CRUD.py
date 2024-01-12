@@ -12,11 +12,11 @@ class CRUD:
             self.informacion.append(i)
         return "Se agrego correctamente"                
             
-    def delete(self, nombre):
-        for i in self.informacion:
-            if i.nombre == nombre:
-                self.informacion.remove(i)
-                return "Se elimino correctamente"
+    def delete(self, index):
+        if index < len(self.informacion):
+            self.informacion.pop(index)
+            return "Se eliminó correctamente"
+        return "El indice no existe"
     
     def modificar_funcion(self, diccionario, nombre):
         for funcion in self.informacion:
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     print("----------------------------------")
     
-    instancia.delete('MEXICO')
+    instancia.delete(1)
 
     print(instancia.show())
 
