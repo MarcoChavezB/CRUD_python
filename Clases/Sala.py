@@ -10,25 +10,6 @@ class Sala():
         print('')
         return f'Nombre de sala: {self.numSala}, numero de asientos: {self.num_asientos}, Funcion: {self.funcion}, hora de limpieza: {self.hora_limpieza}, maximo de personas: {self.max_personas}'
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
     from Cine import Cine
