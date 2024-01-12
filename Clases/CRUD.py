@@ -23,9 +23,8 @@ class CRUD:
             if funcion.nombre == nombre:
                 for key, value in diccionario.items():
                     setattr(funcion, key, value)
-                return "Se modificó correctamente"
+            return "Se modificó correctamente"
         return "La función no existe"
-
 
 
 if __name__ == '__main__': 
@@ -36,15 +35,15 @@ if __name__ == '__main__':
     instancia = CRUD()
     funcion = Funcion(hora_inicio = '2:00 PM', pelicula = 'PeliculaXYZ', fecha_estreno = '2024-01-11', hora_fin = '4:00 PM', costo_boleto = '10.00')
     sala = Sala(numero = 100, num_asientos = 10, hora_limpieza = '10:00', max_personas = '12:00', funcion = funcion)
-    cine = Cine(nombre = 'MEXICO', ubicacion = 'Torreon, Coahuila', hora_apertura = '10:00', hora_cierre = '12:00', sala = sala)
+    cine = Cine(nombre = 'Cinemex', ubicacion = 'Torreon, Coahuila', hora_apertura = '10:00', hora_cierre = '12:00', sala = sala)
     objeto = {"sala": cine, "funcion": funcion}
     instancia.add(objeto)
     print(instancia.show())
 
     print("----------------------------------")
     
-    instancia.delete(1)
-
+    #instancia.delete(1)
+    instancia.modificar_funcion({"ubicacion": "3:002819821 PM"}, "Cinemex")
     print(instancia.show())
 
 # funcion - sala - cines 

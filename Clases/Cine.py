@@ -1,5 +1,5 @@
 class Cine:
-    def __init__(self, nombre, ubicacion, hora_apertura, hora_cierre, sala):
+    def __init__(self=None, nombre=None, ubicacion=None, hora_apertura=None, hora_cierre=None, sala=None):
         self.nombre = nombre
         self.ubicacion = ubicacion
         self.hora_apertura = hora_apertura

@@ -1,6 +1,6 @@
 class Funcion:
     funciones = []
-    def __init__(self, hora_inicio, pelicula, fecha_estreno, hora_fin, costo_boleto):
+    def __init__(self=None, hora_inicio=None, pelicula=None, fecha_estreno=None, hora_fin=None, costo_boleto=None):
         self.hora_inicio = hora_inicio
         self.movie = pelicula
         self.fecha_estreno = fecha_estreno

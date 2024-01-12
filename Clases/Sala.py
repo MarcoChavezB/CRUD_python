@@ -1,5 +1,5 @@
 class Sala():
-    def __init__(self, numero, num_asientos, hora_limpieza, max_personas, funcion):
+    def __init__(self=None, numero=None, num_asientos=None, hora_limpieza=None, max_personas=None, funcion=None):
         self.numSala = numero
         self.num_asientos = num_asientos
         self.hora_limpieza = hora_limpieza
