@@ -1,10 +1,11 @@
-class Sala():
+from CRUD import CRUD
+class Sala(CRUD):
     def __init__(self=None, numero=None, num_asientos=None, hora_limpieza=None, max_personas=None, funcion=None):
         self.numSala = numero
         self.num_asientos = num_asientos
         self.hora_limpieza = hora_limpieza
         self.max_personas = max_personas
-        self.funcion = funcion.movie
+        self.funciones = Funcion()
 
     def __str__(self):
         print('')
@@ -16,8 +17,17 @@ if __name__ == '__main__':
     from Funcion import Funcion
     funcion1 = Funcion('15:00', 'Spiderman', '08/01/2024', '17:30', 100)
     sala1 = Sala('B1', 100, '17:35', '90', funcion1)
-    cine = Cine('Cinepolis', 'Torreon, Coahuila', '10:00', '12:00', sala1)
+    cine = Cine('Cinepolis', 'Torreon, Coahuila', '10:00', '12:00', None)
+    
+    sala1.funciones.add(funcion1)
 
-    print(funcion1)
-    print(sala1)
-    print(cine)
+    objeto = {"sala": sala1, "funcion": cine}
+    crud = CRUD()
+    crud.add(objeto)
+    print(crud.show())
+    
+    
+    print("----------------------------------")
+    
+    crud.delete(1)
+    print(crud.show())

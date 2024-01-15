@@ -43,7 +43,8 @@ if __name__ == '__main__':
     print("----------------------------------")
     
     #instancia.delete(1)
-    instancia.modificar_funcion({"ubicacion": "3:002819821 PM"}, "Cinemex")
+    instancia.modificar_funcion({"nombre": "Cinepolis"}, "Cinemex")
     print(instancia.show())
 
+    
 # funcion - sala - cines 
