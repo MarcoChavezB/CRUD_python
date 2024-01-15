@@ -1,4 +1,4 @@
-
+import json
 class CRUD:
     def __init__(self):
         self.informacion = []
@@ -26,12 +26,15 @@ class CRUD:
             return "Se modificó correctamente"
         return "La función no existe"
     
-    def to_dict(self):
-            if len(self.informacion) == 0:
-                return []
-            else:
-                dict_list = [vars(elemento) for elemento in self.informacion]
-                return dict_list
+    def to_dictionary(self):
+        if len(self.informacion) == 0:
+            return []
+        else:
+            dict_list = [vars(elemento) for elemento in self.informacion]
+            with open("data.json", "w") as archivo:
+                json.dump(dict_list, archivo, indent=4)    
+            return dict_list
+
         
 if __name__ == '__main__': 
     from Sala import Sala
@@ -39,15 +42,14 @@ if __name__ == '__main__':
     from Funcion import Funcion
     
     instancia = CRUD()
-    funcion = Funcion(hora_inicio = '2:00 PM', pelicula = 'PeliculaXYZ', fecha_estreno = '2024-01-11', hora_fin = '4:00 PM', costo_boleto = '10.00')
+    funcion = Funcion(hora_inicio = "2:00 PM", pelicula = 'PeliculaXYZ', fecha_estreno = '2024-01-11', hora_fin = '4:00 PM', costo_boleto = '10.00')
     sala = Sala(numero = 100, num_asientos = 10, hora_limpieza = '10:00', max_personas = '12:00')
     cine = Cine(nombre = 'Cinemex', ubicacion = 'Torreon, Coahuila', hora_apertura = '10:00', hora_cierre = '12:00', sala = vars(sala))
     objeto = {"sala": cine, "funcion": funcion}
     instancia.add(objeto)
     print("----------------------------------")
+    print(instancia.to_dictionary())
     print("----------------------------------")
-    print(instancia.to_dict())
     
 #hacer un ciclo que cada que entre al arreglo y cuando entre el arreglo y hablar al metodo para combertir un diccion
 # funcion - sala - cines 
-

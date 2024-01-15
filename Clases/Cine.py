@@ -9,4 +9,4 @@ class Cine:
 
     def __str__(self):
         print('')
-        return f'Nombre: {self.nombre},\n Ubicacion: {self.ubicacion}, \n Hora de Apertura: {self.hora_apertura}, \n Hora de Cierre: {self.hora_cierre},\n Salas: {self.salas}'
+        return f'Nombre: {self.nombre}, Ubicacion: {self.ubicacion},  Hora de Apertura: {self.hora_apertura},  Hora de Cierre: {self.hora_cierre}, Salas: {self.salas}\n'

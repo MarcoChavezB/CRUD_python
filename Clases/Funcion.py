@@ -12,13 +12,5 @@ class Funcion(CRUD):
 
     def __str__(self):
         print('')
-        return f'Hora de inicio: {self.hora_inicio}, Pelicula: {self.movie}, Fecha estreno: {self.fecha_estreno},Hora de terminado: {self.hora_fin}, Costo de boleto: {self.costo_boleto}'
-
-
-    
-    
-    
-        
-    
-    
+        return f'Pelicula: {self.movie}, Hora de inicio: {self.hora_inicio}, Fecha estreno: {self.fecha_estreno},Hora de terminado: {self.hora_fin}, Costo de boleto: {self.costo_boleto}'
     

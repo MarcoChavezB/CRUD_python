@@ -1,0 +1,28 @@
+[
+    {
+        "nombre": "Cinemex",
+        "ubicacion": "Torreon, Coahuila",
+        "hora_apertura": "10:00",
+        "hora_cierre": "12:00",
+        "salas": {
+            "numSala": 100,
+            "num_asientos": 10,
+            "hora_limpieza": "10:00",
+            "max_personas": "12:00",
+            "funciones": {
+                "hora_inicio": null,
+                "movie": null,
+                "fecha_estreno": null,
+                "hora_fin": null,
+                "costo_boleto": null
+            }
+        }
+    },
+    {
+        "hora_inicio": "2:00 PM",
+        "movie": "PeliculaXYZ",
+        "fecha_estreno": "2024-01-11",
+        "hora_fin": "4:00 PM",
+        "costo_boleto": "10.00"
+    }
+]
