@@ -1,14 +1,19 @@
 from CRUD import CRUD
-from Funcion import Funcion
-
+import json
 class Sala(CRUD):
-    def __init__(self=None, numero=None, num_asientos=None, hora_limpieza=None, max_personas=None):
+    informacion = []
+
+    def __init__(self, numero=None, num_asientos=None, hora_limpieza=None, max_personas=None):
         self.numSala = numero
         self.num_asientos = num_asientos
         self.hora_limpieza = hora_limpieza
         self.max_personas = max_personas
-        self.funciones = vars(Funcion())
+        self.funciones = []
 
-    def __str__(self):    
-        return f'Nombre de sala: {self.numSala}, numero de asientos: {self.num_asientos}, Funcion: {self.funciones}, hora de limpieza: {self.hora_limpieza}, maximo de personas: {self.max_personas}\n'
+    def __str__(self):
+        return f"Numero de sala: {self.numSala} \nNumero de asientos: {self.num_asientos} \nHora de limpieza: {self.hora_limpieza} \nMaximo de personas: {self.max_personas} \nFunciones: {self.funciones}"
 
+    def to_dictionary(self):
+        sala_dict = vars(self)
+        sala_dict["funciones"] = [funcion.to_dictionary() for funcion in self.funciones]
+        return sala_dict

@@ -1,16 +1,18 @@
 from CRUD import CRUD
-
 class Funcion(CRUD):
-    funciones = []
-    def __init__(self=None, hora_inicio=None, pelicula=None, fecha_estreno=None, hora_fin=None, costo_boleto=None):
+    informacion = []
+
+    def __init__(self, Nfuncion=None, hora_inicio=None, pelicula=None, fecha_estreno=None, hora_fin=None, costo_boleto=None):
+        super().__init__()
+        self.Nfuncion = Nfuncion
         self.hora_inicio = hora_inicio
-        self.movie = pelicula
+        self.pelicula = pelicula
         self.fecha_estreno = fecha_estreno
         self.hora_fin = hora_fin
         self.costo_boleto = costo_boleto
-        self.funciones.append(self)
 
     def __str__(self):
-        print('')
-        return f'Pelicula: {self.movie}, Hora de inicio: {self.hora_inicio}, Fecha estreno: {self.fecha_estreno},Hora de terminado: {self.hora_fin}, Costo de boleto: {self.costo_boleto}'
-    
+        return f"Funcion: {self.Nfuncion} \nHora de inicio: {self.hora_inicio} \nPelicula: {self.pelicula} \nFecha de estreno: {self.fecha_estreno} \nHora de fin: {self.hora_fin} \nCosto del boleto: {self.costo_boleto}"
+
+    def to_dictionary(self):
+        return vars(self)
