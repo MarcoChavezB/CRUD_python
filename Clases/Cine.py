@@ -24,4 +24,34 @@ class Cine(CRUD):
         cine_dict = self.to_dictionary()
         with open(file_path, "w") as json_file:
             json.dump(cine_dict, json_file, indent=4)
-        print(f"JSON creado y guardado en '{file_path}'")
+            
+            
+    def read_json(self, file_path="informacionJSON.json"):
+        with open(file_path, "r") as json_file:
+            data = json.load(json_file)
+            return data
+        
+    def convert_to_object(self, json):
+        data = self.read_json()
+        
+    
+    
+
+
+
+if __name__ == '__main__': 
+    from Sala import Sala
+    from Funcion import Funcion
+    from Cine import Cine
+    
+    cine = Cine(nombre="Cinemex", ubicacion="Torreon", hora_apertura="08:00", hora_cierre="22:00")
+    sala = Sala(numero="b1", num_asientos=150, hora_limpieza="08:00", max_personas=200)
+    funcion = Funcion(Nfuncion=1, hora_inicio="08:10", pelicula="spiderman", fecha_estreno="08/01/2024", hora_fin="10:20", costo_boleto=70)
+    funcion2 = Funcion(Nfuncion=2, hora_inicio="10:10", pelicula="Superman", fecha_estreno="10/01/2024", hora_fin="12:20", costo_boleto=90)
+
+    sala.funciones.append(funcion)
+    sala.funciones.append(funcion2)
+    cine.salas.append(sala)
+
+    cine.save_to_json()
+    print(cine.read_json())
