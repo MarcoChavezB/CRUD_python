@@ -1,5 +1,4 @@
 from CRUD import CRUD
-import json
 class Sala(CRUD):
     informacion = []
 
@@ -11,7 +10,10 @@ class Sala(CRUD):
         self.funciones = []
 
     def __str__(self):
-        return f"Numero de sala: {self.numSala} \nNumero de asientos: {self.num_asientos} \nHora de limpieza: {self.hora_limpieza} \nMaximo de personas: {self.max_personas} \nFunciones: {self.funciones}"
+        if  [] == self.informacion:
+            return f"Numero de sala: {self.numSala} \nNumero de asientos: {self.num_asientos} \nHora de limpieza: {self.hora_limpieza} \nMaximo de personas: {self.max_personas} \nFunciones: {self.funciones}"
+        else:
+            return f"array: {len(self.informacion)}"
 
     def to_dictionary(self):
         sala_dict = vars(self)

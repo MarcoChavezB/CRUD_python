@@ -1,5 +1,6 @@
 from CRUD import CRUD
 from Sala import Sala
+from Funcion import Funcion
 import json
 class Cine(CRUD):
     informacion = []
@@ -13,8 +14,11 @@ class Cine(CRUD):
         self.salas = []
 
     def __str__(self):
-        return f"Cine: {self.nombre} \nUbicacion: {self.ubicacion} \nHora de apertura: {self.hora_apertura} \nHora de cierre: {self.hora_cierre} \nSalas: {self.salas}"
-
+        if  [] == self.informacion:
+            return f"Cine: {self.nombre} \nUbicacion: {self.ubicacion} \nHora de apertura: {self.hora_apertura} \nHora de cierre: {self.hora_cierre} \nSalas: {self.salas}"
+        else:
+            return f"array: {len(self.informacion)}"
+        
     def to_dictionary(self):
         cine_dict = vars(self)
         cine_dict["salas"] = [sala.to_dictionary() for sala in self.salas]
@@ -31,11 +35,6 @@ class Cine(CRUD):
             data = json.load(json_file)
             return data
         
-    def convert_to_object(self, json):
-        data = self.read_json()
-        
-    
-    
 
 
 

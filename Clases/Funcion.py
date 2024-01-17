@@ -12,7 +12,10 @@ class Funcion(CRUD):
         self.costo_boleto = costo_boleto
 
     def __str__(self):
-        return f"Funcion: {self.Nfuncion} \nHora de inicio: {self.hora_inicio} \nPelicula: {self.pelicula} \nFecha de estreno: {self.fecha_estreno} \nHora de fin: {self.hora_fin} \nCosto del boleto: {self.costo_boleto}"
+        if  [] == self.informacion:
+            return f"Funcion: {self.Nfuncion} \nHora de inicio: {self.hora_inicio} \nPelicula: {self.pelicula} \nFecha de estreno: {self.fecha_estreno} \nHora de fin: {self.hora_fin} \nCosto del boleto: {self.costo_boleto}"
+        else:
+            return f"array: {len(self.informacion)}"
 
     def to_dictionary(self):
         return vars(self)
