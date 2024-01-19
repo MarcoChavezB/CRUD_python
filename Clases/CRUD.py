@@ -1,4 +1,5 @@
 import json
+from Sala import Sala
 class CRUD:
     def __init__(self):
         self.informacion = []
@@ -27,13 +28,19 @@ class CRUD:
         return "La función no existe"
     
     def to_dictionary(self):
+        def encode(obj):
+            if isinstance(obj, Sala):
+                return obj.to_dictionary()
+            raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
+
         if len(self.informacion) == 0:
             return []
         else:
             dict_list = [vars(elemento) for elemento in self.informacion]
             with open("informacionJSON.json", "w") as archivo:
-                json.dump(dict_list, archivo, indent=3)
+                json.dump(dict_list, archivo, indent=3, default=encode)
             return dict_list
+    
 
         
 if __name__ == '__main__': 
@@ -49,6 +56,6 @@ if __name__ == '__main__':
     sala.funciones.append(funcion)
     sala.funciones.append(funcion2)
     cine.salas.append(sala)
-
-    cine.save_to_json()
+    
+    
 
