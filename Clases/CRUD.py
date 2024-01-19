@@ -32,7 +32,7 @@ class CRUD:
         else:
             dict_list = [vars(elemento) for elemento in self.informacion]
             with open("informacionJSON.json", "w") as archivo:
-                json.dump(dict_list, archivo, indent=3)    
+                json.dump(dict_list, archivo, indent=3)
             return dict_list
 
         
